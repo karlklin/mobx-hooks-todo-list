@@ -1,6 +1,6 @@
 import {computed, observable, autorun} from 'mobx';
 
-class ObservableTodoStore {
+class ToDoStore {
     @observable todos = [];
     @observable pendingRequests = 0;
 
@@ -37,4 +37,4 @@ class ObservableTodoStore {
     }
 }
 
-export default new ObservableTodoStore();
+export default new ToDoStore();

@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer} from 'mobx-react';
 
-const Owner = observer(({store}) => {
+const OwnerView = observer(({store}) => {
     return (
         <div>
             <input name='owner'
@@ -12,4 +12,4 @@ const Owner = observer(({store}) => {
     );
 });
 
-export default Owner;
+export default OwnerView;

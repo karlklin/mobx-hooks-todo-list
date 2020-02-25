@@ -1,9 +1,9 @@
 import React from 'react';
 import {observer} from "mobx-react";
 
-const TodoList = observer(({store}) => {
+const ToDoListView = observer(({store, owner}) => {
     const onNewTodo = () => {
-        store.addTodo(prompt('Enter a new todo:', 'coffee plz'));
+        store.addTodo(prompt('Enter a new todo:', 'coffee plz'), owner);
     };
 
     return (
@@ -11,7 +11,7 @@ const TodoList = observer(({store}) => {
             {store.report}
             <ul>
                 {store.todos.map(
-                    (todo, idx) => <TodoView todo={todo} key={idx}/>
+                    (todo, idx) => <ToDoItemView todo={todo} key={idx}/>
                 )}
             </ul>
             {store.pendingRequests > 0 ? <marquee>Loading...</marquee> : null}
@@ -21,9 +21,9 @@ const TodoList = observer(({store}) => {
     );
 });
 
-export default TodoList;
+export default ToDoListView;
 
-const TodoView = observer(({todo}) => {
+const ToDoItemView = observer(({todo}) => {
     const onToggleCompleted = () => {
         todo.completed = !todo.completed;
     };
